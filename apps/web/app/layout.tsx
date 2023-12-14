@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
 import { SocketProvider } from "../context/SocketProvider";
 
-const inter = Work_Sans({ subsets: ["latin"] });
+const work_Sans = Work_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "chat-app",
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <SocketProvider>
-        <body className={`${inter.className} min-h-screen antialiased`}>{children}</body>
+        <body className={`${work_Sans.className} min-h-screen antialiased`}>{children}</body>
       </SocketProvider>
     </html>
   );

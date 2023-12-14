@@ -27,13 +27,13 @@ export default function Home() {
   // console.log(userName)
 
   return (
-    <main className="p-4 text-center">
-      <div>
+    <main className="p-4">
+      <div className="flex md:justify-center">
         <input
           type="text"
           value={userName}
           placeholder="enter your name"
-          className="border py-2 px-6 pl-2 rounded-3xl mr-4"
+          className="border py-2 md:px-3 pl-2 rounded-3xl md:mr-4 md:w-[15%]"
           onChange={(e) => setUserName(e.target.value)}
         />
         <input
@@ -51,13 +51,13 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="mt-11 flex flex-col space-y-4 items-start h-auto w-auto md:max-w-[768px] mx-auto">
+      <div className="mt-11 flex flex-col items-start h-auto w-auto md:max-w-[768px] mx-auto">
         {messages?.map((msg: any, index: number) => (
           <div
             key={index}
             className={`flex ${
               index % 2 === 0
-                ? "justify-start relative left-10"
+                ? "justify-start relative left-4"
                 : "justify-end relative right-21"
             } w-full`}
           >
@@ -66,18 +66,21 @@ export default function Home() {
                 index % 2 === 0 ? "mr-auto" : "ml-auto"
               }`}
             >
-              <span className="font-semibold px-[2px] py-[3px]">{msg.user}: </span>
-              <span
-                className={`inline-block py-[3px] px-6 rounded-full rounded-bl-md ${
-                  index % 2 === 0
-                    ? "bg-[#4dbbfa] text-black"
-                    : "bg-[#f08080] text-black"
-                } relative`}
-              >
-                {msg.message}
-              </span>
+              <div className="flex flex-col justify-start items-start">
+                <span className="font-semibold px-[2px] py-[3px]">
+                  {msg.user}:{" "}
+                </span>
+                <span
+                  className={`inline-block py-[3px] px-6 rounded-full ${
+                    index % 2 === 0
+                      ? "bg-[#4dbbfa] text-black"
+                      : "bg-[#e4e3e8] text-black"
+                  } relative`}
+                >
+                  {msg.message}
+                </span>
+              </div>
             </section>
-
           </div>
         ))}
       </div>
